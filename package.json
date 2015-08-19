@@ -1,0 +1,35 @@
+{
+  "name": "github-stats",
+  "version": "1.0.0",
+  "description": "Collect stats by receiving webhook event notifications from github.",
+  "main": "listener.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dennishall1/github-stats.git"
+  },
+  "keywords": [
+    "github",
+    "repo",
+    "repository",
+    "label",
+    "labels",
+    "stats",
+    "statistics",
+    "analysis",
+    "track",
+    "tracker"
+  ],
+  "author": "Dennis Hall",
+  "license": "Commercial",
+  "bugs": {
+    "url": "https://github.com/dennishall1/github-stats/issues"
+  },
+  "homepage": "https://github.com/dennishall1/github-stats",
+  "dependencies": {
+    "firebase": "^2.2.9",
+    "gith": "^1.0.4"
+  }
+}
