@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(enrouten({ directory: 'routes' }));
+app.use(enrouten({ directory: path.join(__dirname, 'routes') }));
 
 
 // catch 404 and forward to error handler
