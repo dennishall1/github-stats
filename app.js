@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var enrouten = require('express-enrouten');
+var serveStatic = require('serve-static');
 
 var app = express();
 
@@ -20,7 +21,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(serveStatic(path.join(__dirname, 'public'), {
+  setHeaders: function(res, path){
+    if(path.split(/\./).pop() === "hbs"){
+      res.setHeader('Content-Type', 'text/html');
+    }
+  }
+}));
 
 
 app.use(enrouten({ directory: path.join(__dirname, 'routes') }));

@@ -13,6 +13,8 @@ module.exports = function (router) {
     });
     
     router.post('/', function (req, res) {
+        // tack on a property to track what time it is when we receive the notification
+        req.body.received_at = (new Date()).toISOString();
         console.log('request body', req.body);
         firebase.push(req.body);
         res.send('ok');

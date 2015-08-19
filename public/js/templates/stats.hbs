@@ -1,0 +1,41 @@
+{{#each pullRequests}}
+
+    <h2>{{branch}}</h2>
+
+    {{#each events}}
+        <div class="gh-notification-details">
+            <table>
+                <tr>
+                    <th>Action</th>
+                    <td>{{action}}</td>
+                </tr>
+                {{#if label}}
+                <tr>
+                    <th>Label</th>
+                    <td class="has-label">
+                        <span class="label" style="background:#{{label.color}};">
+                            {{label.name}}
+                        </span>
+                    </td>
+                </tr>
+                {{/if}}
+                <tr>
+                    <th>Title</th>
+                    <td>{{pull_request.title}}</td>
+                </tr>
+                <tr>
+                    <th>Branch</th>
+                    <td>{{pull_request.head.ref}}</td>
+                </tr>
+                <tr>
+                    <th>Initiator</th>
+                    <td>
+                        <img class="avatar" src="{{pull_request.head.user.avatar_url}}"/>
+                        <span class="user">{{pull_request.head.user.login}}</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {{/each}}
+
+{{/each}}

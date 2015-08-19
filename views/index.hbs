@@ -1,2 +1,7 @@
 <h1>{{title}}</h1>
-<p>{{{body}}}</p>
+
+{{{body}}}
+
+<iframe src="/js/templates/stats.hbs" id="template" style="border:0;width:0;height:0;opacity:0" onload="this.className='loaded'; top.dispatchEvent(new Event('template-ready', {id:'template'}))"></iframe>
+
+<div id="output"></div>
