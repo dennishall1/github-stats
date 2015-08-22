@@ -1,7 +1,21 @@
 <h1>{{title}}</h1>
 
-{{{body}}}
 
-<iframe src="/js/templates/stats.hbs" id="template" style="border:0;width:0;height:0;opacity:0" onload="this.className='loaded'; top.dispatchEvent(new Event('template-ready', {id:'template'}))"></iframe>
+<svg id="svg-store" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="circled-plus" viewBox="0 0 48 48">
+        <g>
+            <circle cx="50%" cy="50%" r="50%" fill="white"/>
+            <path d="M26 14h-4v8h-8v4h8v8h4v-8h8v-4h-8v-8zm-2-10c-11.05 0-20 8.95-20 20s8.95 20 20 20 20-8.95 20-20-8.95-20-20-20zm0 36c-8.82 0-16-7.18-16-16s7.18-16 16-16 16 7.18 16 16-7.18 16-16 16z"/>
+        </g>
+    </symbol>
+</svg>
 
-<div id="output"></div>
+<div id="output">
+
+    <br><br><br>
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+    <div class="line4"></div>
+
+</div>
