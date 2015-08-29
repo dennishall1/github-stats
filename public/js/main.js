@@ -37,15 +37,19 @@
                 }
 
                 // do we know what pr number this is?
-                var prNumber = item.pull_request && item.pull_request.number ||
-                    item.issue && item.issue.number ||
-                    item.comment && item.comment.pull_request_url.split(/\//g).pop();
+                var prNumber = (
+                    (item.pull_request && item.pull_request.number) ||
+                    (item.issue && item.issue.number) ||
+                    (item.comment && item.comment.pull_request_url && item.comment.pull_request_url.split(/\//g).pop())
+                );
 
-                var hasPRNumber = prNumber || prNumber === 0;
+                var hasPRNumber = prNumber.match(/\d+/);
 
                 // do we know what branch this is?
-                var branch = item.pull_request && item.pull_request.head.ref ||
-                        item.ref && item.ref.replace('refs/heads/', '');
+                var branch = (
+                    (item.pull_request && item.pull_request.head.ref) ||
+                    (item.ref && item.ref.replace('refs/heads/', ''))
+                );
 
                 // commits may not include a pr number reference.
                 // comments may not include a branch reference.
@@ -55,7 +59,7 @@
                     prNumber = branch || Math.random();
                     // pullRequestsWithUnknownNumbers.push(prNumber);
                     pullRequestsObjRef = pullRequestsWithUnknownNumbers;
-                    console.warn("no pr number for ", prNumber, item);
+                    console.warn("no pr number for ", branch, prNumber, item);
                 }
 
                 // initialize this datapoint, if not already
