@@ -43,7 +43,7 @@
                     (item.comment && item.comment.pull_request_url && item.comment.pull_request_url.split(/\//g).pop())
                 );
 
-                var hasPRNumber = (prNumber || '').match(/\d+/);
+                var hasPRNumber = prNumber || parseInt(prNumber) === 0;
 
                 // do we know what branch this is?
                 var branch = (
